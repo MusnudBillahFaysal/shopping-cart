@@ -1,3 +1,3 @@
 export default function formatCurrency(num) {
-  return '$' + Number(num.toFixed(1)).toLocaleString() + ' ';
+  return 'BDT ' + Number(num.toFixed(1)).toLocaleString() + ' TK ';
 }
