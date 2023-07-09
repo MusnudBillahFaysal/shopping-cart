@@ -1,16 +1,24 @@
-// feature 1
 import React from 'react';
 import data from './data.json';
 import Products from './components/Products';
 import Filter from './components/Filter';
 import Cart from './components/Cart';
 
+const getLocalCartData = () => {
+  let newCartData = localStorage.getItem('cartItems');
+  if (!newCartData || newCartData === '') {
+    return null;
+  } else {
+    return JSON.parse(newCartData);
+  }
+};
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       products: data.products,
-      cartItems: [],
+      cartItems: getLocalCartData(),
       size: '',
       sort: '',
     };
@@ -75,6 +83,24 @@ class App extends React.Component {
       });
     }
   };
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.products !== this.state.products &&
+      this.state.products !== null &&
+      this.state.products !== undefined
+    ) {
+      localStorage.setItem('products', JSON.stringify(this.state.products));
+    }
+
+    if (
+      prevProps.cartItems !== this.state.cartItems &&
+      this.state.cartItems !== null &&
+      this.state.cartItems !== undefined
+    ) {
+      localStorage.setItem('cartItems', JSON.stringify(this.state.cartItems));
+    }
+  }
+
   render() {
     return (
       <div className="grid-container">
@@ -104,7 +130,7 @@ class App extends React.Component {
             </div>
           </div>
         </main>
-        <footer>All right is reserved.</footer>
+        <footer>All rights reserved.</footer>
       </div>
     );
   }

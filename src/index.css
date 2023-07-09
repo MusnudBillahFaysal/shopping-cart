@@ -134,13 +134,14 @@ footer {
 .filter div {
   flex: 1;
 }
-
-/*cart item*/
+/* Cart item */
 .cart {
   padding: 1rem;
   margin: 1rem;
   display: flex;
+  flex-direction: column;
 }
+
 .cart-header {
   border-bottom: 0.1rem #c0c0c0 solid;
 }
@@ -150,44 +151,84 @@ footer {
   width: 100%;
   list-style-type: none;
 }
-.cart-items img {
-  width: 5rem;
-}
+
 .cart-items li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem #c0c0c0 solid;
+  padding: 1rem 0;
 }
 
-.cart-items li div {
-  padding: 0.5rem;
+.cart-items li img {
+  width: 5rem;
 }
-.cart-items li div:last-child {
-  flex: 1;
-}
-.right {
+
+.cart-items li .right {
   text-align: right;
 }
-.button {
+
+.cart-items li .button {
   background-color: #079b87;
-  text-transform: bold;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
+
 .price {
   padding: 1rem;
   text-align: right;
   display: flex;
-  flex: 1;
+  align-items: center;
 }
 
 .total {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  padding: 1rem 0;
 }
+
 .total > div {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
-.total > div,
-.total > button {
+
+.total > div.total-amount {
   flex: 1;
-  padding: 0.0008rem;
+  font-size: 2rem;
+}
+
+.total > button {
+  background-color: #f0c040;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.total > button:hover {
+  background-color: #aa3030;
+}
+
+/* Proceed button */
+.proceed-button {
+  align-self: flex-end;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #f0c040;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.proceed-button:hover {
+  background-color: #aa3030;
 }
